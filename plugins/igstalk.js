@@ -1,0 +1,15 @@
+const fetch = require('node-fetch')
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+  if (!args[0]) throw `Example:\n${usedPrefix + command} __a_n_i_r_u_d_h_`
+
+  let res = await fetch(global.API('zekais', '/igs', { username: args[0] }))
+  if (!res.ok) throw eror
+  let json = await res.json()
+  if (json.status != 200) throw json
+  conn.sendFile(m.chat, json.data.profilehd, 'eror.jpg', `*Name:* ${json.data.fullname}\n*Bio:* ${json.data.bio}\n*Followers:* ${json.data.follower}\n*Following:* ${json.data.following}\n*Posts:* ${json.data.timeline}\n*Private:* ${json.data.private ? 'Yes' : 'No'}\n\nhttps://www.instagram.com/__a_n_i_r_u_d_h_/`, m, 0, { thumbnail: await (await fetch(json.data.profilehd)).buffer() })
+}
+handler.help = ['igstalk <username>']
+handler.tags = ['tools']
+handler.command = /^(igstalk)$/i
+handler.limit = true
+module.exports = handler
