@@ -7,14 +7,14 @@
 # notes!!
 
 
-* before you clone first delete the file [session.data.json](ttps://github.com/SudoAnirudh/_E-V-A_/blob/main/session.data.json)
+* before you clone first delete the file [session.data.json](https://github.com/SudoAnirudh/E-V-A/blob/main/session.data.json)
 
 
 ## ERROR FIX IT YOURSELF
 
 ## UPDATE!!
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SudoAnirudh/_E-V-A_)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SudoAnirudh/E-V-A)
 
 [![My Bot OFF](https://img.shields.io/badge/MyBot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](http://wa.me/13656503237?text=.menu)
 **BOT ON**
@@ -27,7 +27,7 @@
 * Download & Instal ImageMagick [`Click here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/SudoAnirudh/_E-V-A_
+git clone https://github.com/SudoAnirudh/E-V-A
 npm install
 npm update
 npm index
@@ -37,7 +37,7 @@ npm index
 
 ## FOR TERMUX USERS
 ```bash
-git clone https://github.com/SudoAnirudh/_E-V-A_
+git clone https://github.com/SudoAnirudh/E-V-A
 cd _E-V-A_
 npm i
 npm update
