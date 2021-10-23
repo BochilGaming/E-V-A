@@ -31,12 +31,12 @@ global.APIKeys = { // APIKey nya disini
 }
 
 // Sticker WM
-global.packname = 'Eva'
-global.author = 'Anirudh'
+global.packname = 'Eva-Sticker'
+global.author = 'Eva'
 
 global.wait = '_*Please Wait..*_'
 global.eror = '_*Server Error*_'
-global.fla = 'https://ibb.co/7SmJ4T2'
+global.fla = 'https://ibb.co/jW31z7n'
 
 global.watermark = '© EVA'
 
