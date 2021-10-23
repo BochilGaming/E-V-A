@@ -478,7 +478,7 @@ global.dfail = (type, m, conn) => {
     admin: 'This command is only for *Admin* group',
     botAdmin: 'Make bot as *Admin* to use this command',
     unreg: 'Please register to use this feature by typing:\n\n*#register name.age*\n\nEXAMPLE: *#register Eva.19*',
-    nsfw: 'NSFW tidak aktif'
+    nsfw: 'NSFW is not active'
   }[type]
   if (msg) return m.reply(msg)
 }
