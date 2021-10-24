@@ -1,7 +1,7 @@
 {
-  "name": "Eva",
+  "name": "stikerinbot",
   "description": "Lightweight WhatsApp Bot",
-  "repository": "https://github.com/SudoAnirudh/E-V-A",
+  "repository": "https://github.com/ariffb25/stikerinbot",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": [
     "bot",
