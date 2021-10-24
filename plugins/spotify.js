@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let handler = async(m, { conn, text }) => {
-  if (!text) throw `Masukkan judul musik!`
+  if (!text) throw `Enter Song title!`
   let res = await fetch(global.API('zeks', '/api/spotify', { q: text }, 'apikey'))
   if (!res.ok) throw await res.text()
   let json = await res.json()
@@ -9,14 +9,13 @@ let handler = async(m, { conn, text }) => {
 let spotifyinfo = `✨️ *Title:* ${title}
 🗣️ *Artists:* ${artists}
 🎆️ *Album:* ${album}
-🌐️ *URL*: ${url}
-💚️ *Direct URL:* ${preview_mp3}\n\n@Eva`
+💚️ *Spotify Direct URL:* ${preview_mp3}\n\n@Eva`
 
   await conn.sendFile(m.chat, thumb, '', spotifyinfo, m)
-  await conn.sendFile(m.chat, preview_mp3, 'spotify.mp3', spotifyinfo, m)
+  await conn.sendFile(m.chat, preview_mp3, 'Eva.mp3', spotifyinfo, m)
 }
-handler.help = ['spotify <query>']
+handler.help = ['spotify <query>', 'song <song name>']
 handler.tags = ['internet']
-handler.command = /^(spotify|music)$/i
+handler.command = /^(spotify|music|song)$/i
 // Made By github.com/TOXIC-DEVIL
 module.exports = handler
