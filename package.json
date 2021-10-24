@@ -1,7 +1,7 @@
 {
   "name": "Eva",
   "version": "1.1.2",
-  "description": "Lightweight WhatsApp Bot",
+  "description": "WhatsApp Bot",
   "main": "index.js",
   "directories": {
     "lib": "lib",
