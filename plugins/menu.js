@@ -28,7 +28,7 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker','quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools','anime', 'fun', 'database', 'quran', 'audio','info','owner']
+  let arrayMenu = ['all', 'game', 'xp', 'stiker','quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools','anime', 'fun', 'database', 'audio','info','owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Main',
@@ -49,7 +49,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'fun': 'Fun',
     'database': 'Database',
     'vote': 'Voting',
-    'absen': 'Absen',
+    'audio': 'Voice Changer',
     'info': 'Info',
     '': 'No Category',
   }
@@ -62,7 +62,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'stiker') tags = {
     'sticker': 'Stiker'
   }
-  if (teks == 'kerang') tags = {
+  if (teks == 'shell') tags = {
     'shell': 'Magic Shells'
   }
   if (teks == 'quotes') tags = {
@@ -100,6 +100,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'database') tags = {
     'database': 'Database'
+  }
+  if (teks == 'audio') tags = {
+    'audio': 'Voice Changer'
   }
   if (teks == 'vote') tags = {
     'vote': 'Voting',
@@ -171,21 +174,21 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
               "rows": [
                 {
                   "title": `All Commands`,
-                  "description": "Gives The All Commands Of Bot",
+                  "description": "Show all features",
                   "rowId": ".? all"
                 }, {
                   "title": "Game",
-                  "description": "Game Related Plugins",
+                  "description": "Game features",
                   "rowId": ".? game"
 
                 }, {
                   "title": "XP",
-                  "description": "",
+                  "description": "Features level & usage limit",
                   "rowId": ".? xp"
 
                 }, {
                   "title": "Stiker",
-                  "description": "Sticker Related",
+                  "description": "Features for making stickers",
                   "rowId": ".? stiker"
                 }, { 
                 "title": "Anime",
@@ -216,6 +219,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "To Start Anonymous Chatting",
                   "rowId": ".? anonymous"
                 }, {
+                  "title": "Magic Shell",
+                  "description": "Random answer feature",
+                  "rowId": `.? magicshell`
+                }, {
                   "title": "Nulis & Logo",
                   "description": "Text Maker Coammnds",
                   "rowId": ".? nulis"
@@ -225,23 +232,27 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "rowId": ".? downloader"
                 }, {
                   "title": "Tools",
-                  "description": "",
+                  "description": "Tool features",
                   "rowId": ".? tools"
                 }, {
+                  "title": "Voice Changer",
+                  "description": "To change the voice",
+                  "rowId": `.? audio`
+                }, {
                   "title": "Fun",
-                  "description": "",
+                  "description": "Just for fun",
                   "rowId": ".? fun"
                 }, {
                   "title": "Database",
-                  "description": "",
+                  "description": "User database",
                   "rowId": ".? database"
                 }, {
                   "title": "Info",
-                  "description": "",
+                  "description": "To find out BOT info",
                   "rowId": ".? info"
                 }, {
                   "title": "Owner",
-                  "description": "",
+                  "description": "Owner's special features",
                   "rowId": ".? owner"
                 }
               ]

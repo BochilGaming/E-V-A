@@ -32,7 +32,7 @@ handler.all = async function (m, { isBlocked }) {
 ├ 
 └────
 
-https://github.com/SudoAnirudh/_E-V-A_
+https://github.com/SudoAnirudh/E-V-A
 `.trim(), '© Eva', 'Bot Owner', ',owner', m)
     }
 
