@@ -21,7 +21,7 @@ let handler = async (m, { conn, participants }) => {
   await delay(1000 * 60 * lamaPertarungan)
 
   let alasanKalah = ['badass','stupid','mostly coli','lack of sleep','broken sword','cut off hand','limping','wet dream','cheated','havent had coffee','not showered', 'kopong knee', 'gay', 'hated by owne']
-  let alasanMenang = ['great','doesn't like smoking','has a long sword','your sword is strong','don't like coli','had coffee this morning','loves owner','can somersault','good at','diligent push up','dont like to shake the stick']
+  let alasanMenang = ['great','doesnt like smoking','has a long sword','your sword is strong','dont like coli','had coffee this morning','loves owner','can somersault','good at','diligent push up','dont like to shake the stick']
 
   let kesempatan = []
   for (i=0;i<conn.level(global.DATABASE.data.users[m.sender].xp)[0];i++) kesempatan.push(m.sender)
