@@ -25,7 +25,7 @@ global.APIKeys = { // APIKey nya disini
   'https://fxc7-api.herokuapp.com':'pnj8NAJb',
   'https://pencarikode.xyz': 'pais',
   'https://api.xteam.xyz': 'isi apikey lu',
-  'https://api.lolhuman.xyz': 'isi pake apikey lu',
+  'https://api.lolhuman.xyz': 'sdz8VotwEnDd4HvdIUfy1e4qTDx',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.xyz': 'apivinz',
 }
