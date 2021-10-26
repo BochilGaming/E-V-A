@@ -11,7 +11,7 @@ try {
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} is not supported`
   let img = await q.download()
   let url = await uploadImage(img)
-  let Horny = `https://some-random-api.ml/canvas/horny?avatar=${url}`
+  let Horny = `https://some-random-api.ml/canvas/horny?avatar=${pp}`
   let stiker = await sticker(null, Horny, 'Horny', '@Eva')
   conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m

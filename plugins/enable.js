@@ -236,7 +236,7 @@ ${usedPrefix}off welcome
       throw false
   }
   m.reply(`
-*${type}* successful in *${isEnable ? 'flame' : 'dead'}right* ${isAll ? 'for this bot' : isUser ? '' : 'for this chat'}
+*${type}* successful in *${isEnable ? 'enabl' : 'turnoff'}ed* ${isAll ? 'for this bot' : isUser ? '' : 'for this chat'}
 `.trim())
 }
 handler.help = ['on', 'off'].map(v => v + ' <opsi>')

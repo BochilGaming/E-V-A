@@ -19,17 +19,15 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
       usedServer = server
       break
     } catch (e) {
-      m.reply(`Server ${server} error!${servers.length >= i + 1 ? '' : '\ntry another server...'}`)
+      m.reply(`Server ${server} error!${servers.length >= i + 1 ? '' : '\ntry again...'}`)
     }
   }
-  if (yt === false) throw 'all servers fail'
-  if (yt2 === false) throw 'all servers fail'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
   await conn.send2ButtonLoc(m.chat, await (await fetch(thumb)).buffer(), `
 *Title:* ${title}
 *Audio File Size:* ${filesizeF}
 *Video File Size:* ${yt2.filesizeF}
-*Server y2mate:* ${usedServer}
+*Play Doesnt Work ,In Disappearing mode*
 `.trim(), watermark, 'Audio', `.yta ${vid.url}`, 'Video', `.yt ${vid.url}`)
 }
 handler.help = ['song','play','?'].map(v => v + ' <query>')
