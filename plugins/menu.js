@@ -28,7 +28,7 @@ ${'```%npmdesc```'}
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker','quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools','anime', 'fun', 'database', 'audio','info','owner']
+  let arrayMenu = ['all', 'game', 'xp', 'stiker','quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools','anime','videomaker', 'fun', 'database', 'audio','info','owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'Main',
@@ -46,6 +46,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'nulis': 'MagerNulis & Logo',
     'downloader': 'Downloader',
     'tools': 'Tools',
+    'Video Maker':'videomaker',
     'fun': 'Fun',
     'database': 'Database',
     'vote': 'Voting',
@@ -76,6 +77,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'premium') tags = {
     'premium': 'Premium'
+  }
+  if (teks == 'videomaker') tags = {
+    'videomaker': 'Video Maker'
   }
   if (teks == 'internet') tags = {
     'internet': 'Internet'
@@ -186,7 +190,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Features level & usage limit",
                   "rowId": ".? xp"
 
-                }, {
+                },  {
+                  "title": "Video Maker",
+                  "description": "Making Different Types Of Videos",
+                  "rowId": ".? .videomaker"
+
+                },{
                   "title": "Stiker",
                   "description": "Features for making stickers",
                   "rowId": ".? stiker"
