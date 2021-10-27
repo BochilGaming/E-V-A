@@ -28,8 +28,8 @@ handler.all = async function (m, { isBlocked }) {
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Open this link')) && !m.isBaileys && !m.isGroup) {
         this.sendButton(m.chat, `┌〔 Invite Bots to Group 〕
-├ 
-├ 
+├ To Join Groups..
+├ .join Group Link
 └────
 
 https://github.com/SudoAnirudh/E-V-A
