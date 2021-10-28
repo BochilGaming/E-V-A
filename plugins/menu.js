@@ -255,11 +255,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "title": "Database",
                   "description": "User database",
                   "rowId": ".? database"
-                }, {
-                  "title": "Info",
-                  "description": "To find out BOT info",
-                  "rowId": ".? info"
-                }, {
+                },{
                   "title": "Owner",
                   "description": "Owner's special features",
                   "rowId": ".? owner"

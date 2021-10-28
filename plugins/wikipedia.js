@@ -37,7 +37,7 @@ let handler = async (m, { conn, text }) => {
     m.reply(res.result.isi)
   }).catch(() => { m.reply('Not found') })
 }
-handler.help = ['wikipedia <pencarian>']
+handler.help = ['wikipedia <query>']
 handler.tags = ['internet']
 handler.command = /^(wiki(pedia)?)$/i
 

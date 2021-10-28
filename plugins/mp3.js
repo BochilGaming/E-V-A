@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let audio = await toAudio(media, 'mp4')
   conn.sendFile(m.chat, audio, '', '', m, 0, { mimetype: 'audio/mp4' })
 }
-handler.help = ['mp3']
+handler.help = ['mp3','audio']
 handler.tags = ['audio']
 
 handler.command = /^mp3|audio?)$/i
