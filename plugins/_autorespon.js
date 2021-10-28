@@ -33,9 +33,16 @@ handler.all = async function (m, { isBlocked }) {
 └────
 
 https://github.com/SudoAnirudh/E-V-A
-`.trim(), '© Eva', 'Bot Owner', ',owner', m)
+`.trim(), '© Eva', ' Bot Owner', ',owner', m)
     }
 
+        // ketika ada yang invite/kirim link grup di chat pribadi
+        if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Open this link')) && !m.isBaileys && !m.isGroup) {
+            this.sendButton(m.chat, `┌〔 Invite Bots to Group 〕
+.kick
+    https://github.com/SudoAnirudh/E-V-A
+    `.trim(), '© Eva', ' Bot Owner', ',owner', m)
+        }
 
     // backup db
     if (setting.backup) {
