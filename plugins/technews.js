@@ -1,9 +1,11 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn }) => {
-    const url = `https://inshortsapi.vercel.app/news?category=${match[1]}`;
-}
-handler.help = ['technews','techupdates']
-handler.tags = ['internet']
-handler.command = /^((tech|news)updates)$/i
 
+let handler = async (m, { conn, text }) => {
+let res = await fetch('https://www.theverge.com/rss/index.xml')
+if (!res.ok) throw await `${res.status} ${res.statusText}`;
+let json = await res.json();
+}
+handler.command = /^(technews)$/i
+handler.tags = ['internet']
+handler.help = ['technews']
 module.exports = handler
