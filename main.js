@@ -52,7 +52,7 @@ if (!opts['test']) setInterval(async () => {
 }, 60 * 1000) // Save every minute
 if (opts['server']) require('./server')(global.conn, PORT)
 
-conn.version = [2, 2140, 12]
+conn.version = [2, 2413, 3]
 conn.connectOptions.maxQueryResponseTime = 60_000
 if (opts['test']) {
   conn.user = {
@@ -129,8 +129,8 @@ global.reloadHandler = function () {
   }
   conn.welcome = 'Hai, @user!\nWelcome to the group @subject\n\n@desc'
   conn.bye = '@user GoodBye'
-  conn.spromote = '@user now admin'
-  conn.sdemote = '@user not admin now'
+  conn.spromote = '@user Now Admin'
+  conn.sdemote = '@user Not A Admin'
   conn.handler = handler.handler
   conn.onDelete = handler.delete
   conn.onParticipantsUpdate = handler.participantsUpdate
@@ -184,7 +184,7 @@ global.reload = (_event, filename) => {
         conn.logger.warn(`removed plugin '${filename}'`)
         return delete global.plugins[filename]
       }
-    } else conn.logger.info(`need new plugin '${filename}'`)
+    } else conn.logger.info(`need new plugin'${filename}'`)
     let err = syntaxerror(fs.readFileSync(dir), filename)
     if (err) conn.logger.error(`syntax error when loading '${filename}'\n${err}`)
     else try {
