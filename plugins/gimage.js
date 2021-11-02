@@ -13,7 +13,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 handler.help = ['gimage <search>', 'image <search>','img <search>']
 handler.tags = ['internet']
 handler.command = /^(g?image|img)$/i
-
+handler.register = true
 module.exports = handler
 
 function pickRandom(arr) {

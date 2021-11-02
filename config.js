@@ -21,7 +21,7 @@ global.APIKeys = { // APIKey nya disini
   // 'https://website': 'apikey'
   'https://bx-hunter.herokuapp.com': 'Ikyy69',
   'https://hardianto-chan.herokuapp.com': 'hardianto',
-  'https://neoxr-api.herokuapp.com': 'yntkts',
+  'https://api.neoxr.eu.org/': 'yntkts',
   'https://fxc7-api.herokuapp.com':'pnj8NAJb',
   'https://pencarikode.xyz': 'pais',
   'https://api.xteam.xyz': 'FuzBot1',

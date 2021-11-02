@@ -11,6 +11,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['mp3','audio']
 handler.tags = ['audio']
 
-handler.command = /^mp3|audio?)$/i
+handler.command = /^(mp3|(audio)?toaudio)$/i
 
 module.exports = handler
