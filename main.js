@@ -37,7 +37,7 @@ global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/!#$%+£¢€¥^°=
 global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
     new cloudDBAdapter(opts['db']) :
-    new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
+    new JSONFile(`${opts.[0] ? opts.[0] + '_' : ''}database.json`)
 )
 global.DATABASE = global.db // Backwards Compatibility
 
@@ -52,6 +52,8 @@ if (!opts['test']) setInterval(async () => {
 }, 60 * 1000) // Save every minute
 if (opts['server']) require('./server')(global.conn, PORT)
 
+conn.version = [2, 2413, 3]
+conn.connectOptions.maxQueryResponseTime = 60_000
 if (opts['test']) {
   conn.user = {
     jid: '2219191@s.whatsapp.net',
@@ -125,8 +127,8 @@ global.reloadHandler = function () {
     conn.off('group-update', conn.onGroupUpdate)
     conn.off('CB:action,,call', conn.onCall)
   }
-  conn.welcome = 'Hai, @user!\nWelcome to the group@subject\n\n@desc'
-  conn.bye = 'Goodbye @user'
+  conn.welcome = 'Hai, @user!\nWelcome to the group @subject\n\n@desc'
+  conn.bye = '@user GoodBye'
   conn.spromote = '@user now admin'
   conn.sdemote = '@user not admin now'
   conn.handler = handler.handler
@@ -172,7 +174,6 @@ for (let filename of fs.readdirSync(pluginFolder).filter(pluginFilter)) {
     delete global.plugins[filename]
   }
 }
-console.log(Object.keys(global.plugins))
 global.reload = (_event, filename) => {
   if (pluginFilter(filename)) {
     let dir = path.join(pluginFolder, filename)
@@ -185,7 +186,7 @@ global.reload = (_event, filename) => {
       }
     } else conn.logger.info(`need new plugin '${filename}'`)
     let err = syntaxerror(fs.readFileSync(dir), filename)
-    if (err) conn.logger.error(`syntax error when loading'${filename}'\n${err}`)
+    if (err) conn.logger.error(`syntax error when loading '${filename}'\n${err}`)
     else try {
       global.plugins[filename] = require(dir)
     } catch (e) {
@@ -223,7 +224,6 @@ async function _quickTest() {
     ])
   }))
   let [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm] = test
-  console.log(test)
   let s = global.support = {
     ffmpeg,
     ffprobe,
@@ -236,7 +236,7 @@ async function _quickTest() {
   Object.freeze(global.support)
 
   if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg to send videos (pkg install ffmpeg)')
-  if (s.ffmpeg && !s.ffmpegWebp) conn.logger.warn('Stickers cant be animated without libwebp in ffmpeg (--enable-ibwebp while compiling ffmpeg)')
+  if (s.ffmpeg && !s.ffmpegWebp) conn.logger.warn('Stickers cant be animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
   if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp in ffmpeg is not installed (pkg install imagemagick)')
 }
 
