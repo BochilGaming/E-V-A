@@ -6,7 +6,7 @@ let handler = async (m, { conn, command, args }) => {
   let ss = await (await fetch(global.API('xteam', '/ss', { delay: 1000, url, full }))).buffer()
   conn.sendFile(m.chat, ss, 'screenshot.png', url, m, 0, { thumbnail: ss })
 }
-handler.help = ['ss', 'ssf'].map(v => v + ' <url>')
+handler.help = ['ssweb', 'ssf'].map(v => v + ' <url>')
 handler.tags = ['internet']
 handler.command = /^ss(web)?f?$/i
 handler.owner = false
