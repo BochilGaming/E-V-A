@@ -37,8 +37,9 @@ global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/!#$%+£¢€¥^°=
 global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
     new cloudDBAdapter(opts['db']) :
-    new JSONFile(`${opts.[0] ? opts.[0] + '_' : ''}database.json`)
+    new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
 )
+
 global.DATABASE = global.db // Backwards Compatibility
 
 global.conn = new WAConnection()
