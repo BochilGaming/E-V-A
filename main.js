@@ -42,7 +42,6 @@ global.db = new Low(
 global.DATABASE = global.db // Backwards Compatibility
 
 global.conn = new WAConnection()
-conn.version = [2, 2143, 3]
 let authFile = `${opts._[0] || 'session'}.data.json`
 if (fs.existsSync(authFile)) conn.loadAuthInfo(authFile)
 if (opts['trace']) conn.logger.level = 'trace'
@@ -53,7 +52,7 @@ if (!opts['test']) setInterval(async () => {
 }, 60 * 1000) // Save every minute
 if (opts['server']) require('./server')(global.conn, PORT)
 
-conn.version = [2, 2413, 3]
+conn.version = [2, 2140, 12]
 conn.connectOptions.maxQueryResponseTime = 60_000
 if (opts['test']) {
   conn.user = {
