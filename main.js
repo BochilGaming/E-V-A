@@ -19,7 +19,7 @@ try {
   low = require('./lib/lowdb')
 }
 const { Low, JSONFile } = low
-
+const mongoDB = require('./lib/mongoDB')
 const rl = Readline.createInterface(process.stdin, process.stdout)
 const WAConnection = simple.WAConnection(_WAConnection)
 
@@ -37,7 +37,9 @@ global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/!#$%+£¢€¥^°=
 global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
     new cloudDBAdapter(opts['db']) :
-    new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
+    /mongodb/.test(opts['db']) ?
+      new mongoDB(opts['db']) :
+      new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
 )
 global.DATABASE = global.db // Backwards Compatibility
 
