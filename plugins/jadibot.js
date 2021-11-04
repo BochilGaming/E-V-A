@@ -9,7 +9,7 @@ else global.conns = []
 
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
   let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
-  if (!db.data.settings.jadibot) throw `This feature is not active\n${package.homepage ? package.homepage.url || package.homepage : '[unknown github url]'}`
+  if (!db.data.settings.jadibot) throw `This feature is not active\n${package.homepage ? package.homepage.url || package.homepage : 'https://github.com/SudoAnirudh/E-V-A'}`
   let parent = args[0] && args[0] == 'plz' ? conn : global.conn
   let auth = false
   if ((args[0] && args[0] == 'plz') || global.conn.user.jid == conn.user.jid) {
@@ -71,7 +71,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
       }, 30000)
     })
     global.conns.push(conn)
-  } else throw 'Can't make bot insidebot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.jadibot'
+  } else throw 'Cant make bot insidebot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.jadibot'
 }
 handler.help = ['jadibot']
 handler.tags = ['jadibot']
