@@ -5,9 +5,9 @@ let handler  = async (m, { conn }) => {
       conn.close()
     }
   }
-  handler.help = ['stop','stop']
+  handler.help = ['stop']
   handler.tags = ['jadibot']
-  handler.command = /^(stop|stop)$/i
+  handler.command = /^(mathi|stop)$/i
   handler.owner = true
   handler.mods = false
   handler.premium = false
