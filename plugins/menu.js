@@ -169,7 +169,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     if (teks == '404') {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
-          "title": `${ucapan()}, ${name}`.trim(),
+          "title": `${ucapan()}  ${name}\n\n╭━━━━━━━━━━━━━━━━┈\n│ *Eva*\n└┬────────────┈ ⳹\n┌┤\n││◦➛ *Name :* *${name}*\n││└────────────┈ ⳹\n│ *「 TIME 」*\n│◦➛ Day: *${week}*\n│◦➛ Date: *${date}*\n│◦➛ Time: *${time}* \n│◦➛ Uptime: *$├──────────────┈ ⳹\n│ Owner: Anirudh\n│ Note: Don't spam bot\n╰━━━━━━━━━━━━━━━━┈ ⳹`,
           "description": "© Eva",
           "buttonText": "Click  Here",
           "listType": "SINGLE_SELECT",
