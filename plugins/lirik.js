@@ -1,14 +1,20 @@
 let fetch = require('node-fetch')
-let handler = async (m, { text, usedPrefix, command }) => {
-  if (!text) throw `uhm.. what are you looking for?\n\nexample:\n${usedPrefix + command} shape of you`
-  let res = await fetch(global.API('bx', '/api/music/liriklagu', { query: text }, 'apikey'))
-  if (!res.ok) throw await `${res.status} ${res.statusText}`
+let handler = async (m, { text }) => {
+  let res = await fetch(global.API('https://some-random-api.ml', '/lyrics', {
+    title: text
+  }))
+  if (!res.ok) throw await res.text()
   let json = await res.json()
-  if (!json.status) throw json
-  m.reply(json.result)
+  if (!json.thumbnail.genius) throw json
+  conn.sendFile(m.chat, json.thumbnail.genius, '', `
+*${json.title}*
+_${json.author}_
+${json.lyrics}
+${json.links.genius}
+`, m)
 }
-handler.help = ['lyric'].map(v => v + ' <song>')
+handler.help = ['lyric'].map(v => v + ' <Apa>')
 handler.tags = ['internet']
-handler.command = /^(lyric|lyrics?)$/i
+handler.command = /^(lirik|lyrics|lyric)$/i
 
 module.exports = handler
