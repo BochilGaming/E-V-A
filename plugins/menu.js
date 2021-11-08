@@ -176,7 +176,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 ☮️ 𝕆𝕎ℕ𝔼ℝ : ANIRUDH S,`
  
           .trim(),
-           "description": "© Eva",
+           "description": "🅳🅾🅽🆃 🆂🅿🅰🅼",
           "buttonText": "Click  Here",
           "listType": "SINGLE_SELECT",
           "sections": [
