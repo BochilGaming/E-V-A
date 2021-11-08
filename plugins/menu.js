@@ -170,10 +170,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}
-⏳ 𝕋𝕀𝕄𝔼 : ${time},
-💮 𝕎𝔼𝔼𝕂 : ${week},
-📆 𝔻𝔸𝕋𝔼: ${date},
-☮️ 𝕆𝕎ℕ𝔼ℝ : ANIRUDH S,`
+⏳ 𝕋𝕀𝕄𝔼 : ${time}
+💮 𝕎𝔼𝔼𝕂 : ${week}
+📆 𝔻𝔸𝕋𝔼: ${date}
+☮️ 𝕆𝕎ℕ𝔼ℝ : ANIRUDH S `
  
           .trim(),
            "description": "🅳🅾🅽🆃 🆂🅿🅰🅼",
