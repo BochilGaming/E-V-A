@@ -126,7 +126,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = registered ? global.db.data.users[m.sender].name : conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
-    let locale = 'en_IN'
+    let locale = 'en'
     // d.getTimeZoneOffset()
     // Offset -420 is 18.00
     // Offset    0 is  0.00
@@ -170,10 +170,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}
-🆄🅽🅸🆅🅴🆁🆂🅰🅻 🆃🅸🅼🅴 : ${time},
-🆆🅴🅴🅺 : ${week},
-🅳🅰🆃🅴 : ${date},
-🅾🆆🅽🅴🆁 : 🅰🅽🅸🆁🆄🅳🅷,`
+⏳ 𝕋𝕀𝕄𝔼 : ${time},
+💮 𝕎𝔼𝔼𝕂 : ${week},
+📆 𝔻𝔸𝕋𝔼: ${date},
+☮️ 𝕆𝕎ℕ𝔼ℝ : 𝔸ℕ𝕀ℝ𝕌𝔻ℍ 𝕊,`
  
           .trim(),
            "description": "© Eva",
