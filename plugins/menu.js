@@ -183,34 +183,34 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
             {
               "rows": [
                 {
-                  "title": `All Commands`,
+                  "title": `📜 All Commands`,
                   "description": "Show all features",
                   "rowId": ".? all"
                 }, {
-                  "title": "Game",
+                  "title": "🎮 Game",
                   "description": "Game features",
                   "rowId": ".? game"
 
                 }, {
-                  "title": "XP",
+                  "title": "💸 XP",
                   "description": "Features level & usage limit",
                   "rowId": ".? xp"
 
                 },  {
-                  "title": "Video Maker",
+                  "title": "🎥 Video Maker",
                   "description": "Making Different Types Of Videos",
                   "rowId": ".? .videomaker"
 
                 },{
-                  "title": "Stiker",
+                  "title": "🖼️ Sticker",
                   "description": "Features for making stickers",
                   "rowId": ".? stiker"
                 }, { 
-                "title": "Anime",
+                "title": "💢 Anime",
                 "description": "Anime Related Plugin",
                 "rowId": ".? anime"
               },  {
-                  "title": "Quotes",
+                  "title": "✍️ Quotes",
                   "description": "Gives You Random Quotes..",
                   "rowId": ".? quotes"
                 }, {
@@ -218,51 +218,51 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Group Admin Commands",
                   "rowId": ".? admin"
                 }, {
-                  "title": "Grup",
+                  "title": "🫂 Group",
                   "description": "Group Related Commands",
                   "rowId": ".? grup"
                 }, {
-                  "title": "Premium",
+                  "title": "✨ Premium",
                   "description": "Premium Users Plugins",
                   "rowId": ".? premium"
                 }, {
-                  "title": "Internet",
+                  "title": "🌐 Internet",
                   "description": "Commands Related To Internet",
                   "rowId": ".? internet"
                 }, {
-                  "title": "Anonymous",
+                  "title": "👤 Anonymous",
                   "description": "To Start Anonymous Chatting",
                   "rowId": ".? anonymous"
                 }, {
-                  "title": "Magic Shell",
+                  "title": "🔅 Magic Shell",
                   "description": "Random answer feature",
                   "rowId": `.? magicshell`
                 }, {
-                  "title": "Nulis & Logo",
+                  "title": "☯️ Nulis & Logo",
                   "description": "Text Maker Coammnds",
                   "rowId": ".? nulis"
                 }, {
-                  "title": "Downloader",
+                  "title": "⏬ Downloader",
                   "description": "Downloading Commnds",
                   "rowId": ".? downloader"
                 }, {
-                  "title": "Tools",
+                  "title": "⚙️ Tools",
                   "description": "Tool features",
                   "rowId": ".? tools"
                 }, {
-                  "title": "Voice Changer",
+                  "title": "🗣️ Voice Changer",
                   "description": "To change the voice",
                   "rowId": `.? audio`
                 }, {
-                  "title": "Fun",
+                  "title": "😜 Fun",
                   "description": "Just for fun",
                   "rowId": ".? fun"
                 }, {
-                  "title": "Database",
+                  "title": "📁 Database",
                   "description": "User database",
                   "rowId": ".? database"
                 },{
-                  "title": "Owner",
+                  "title": "☮️ Owner",
                   "description": "Owner's special features",
                   "rowId": ".? owner"
                 }
