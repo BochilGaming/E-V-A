@@ -214,7 +214,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "Gives You Random Quotes..",
                   "rowId": ".? quotes"
                 }, {
-                  "title": "Admin",
+                  "title": "👨🏻‍💻 Admin",
                   "description": "Group Admin Commands",
                   "rowId": ".? admin"
                 }, {
