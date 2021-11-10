@@ -7,8 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   let json = await res.json()
   if (!json.status) throw json        
   await m.reply(wait)
-  await conn.sendFile(m.chat, thumb, '', ytshorts, m)
-  await conn.sendFile(m.chat, link, '', ytshorts, m)
+  await conn.sendFile(m.chat, json.link, '', `${json.title}\n\n© Eva`, m)
 }
 handler.help = ['ytshorts'].map(v => v + ' <url>')
 handler.tags = ['downloader']
