@@ -7,7 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!res.ok) throw eror
   let json = await res.json()
   if(!json.data[0]) throw json
-  let { title, channel, thumb, views,  } = json.data[0]
+  let { title, channel, thumb, views,  } = json.data
 let ytshorts = `✨️ *Title:* ${title}
  *Channel:* ${channel}
  *Quality*: ${quality}
