@@ -20,7 +20,6 @@ try {
 }
 const { Low, JSONFile } = low
 const mongoDB = require('./lib/mongoDB')
-
 const rl = Readline.createInterface(process.stdin, process.stdout)
 const WAConnection = simple.WAConnection(_WAConnection)
 
@@ -43,23 +42,6 @@ global.db = new Low(
       new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
 )
 global.DATABASE = global.db // Backwards Compatibility
-global.loadDatabase = async function loadDatabase() {
-  if (global.db.READ) return new Promise((resolve) => setInterval(function () {(!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null)}, 0.5 * 1000))
-  if (global.db.data !== null) return
-  global.db.READ = true
-  await global.db.read()
-  global.db.READ = false
-  global.db.data = {
-    users: {},
-    chats: {},
-    stats: {},
-    msgs: {},
-    sticker: {},
-    ...(global.db.data || {})
-  }
-  global.db.chain = _.chain(global.db.data)
-}
-loadDatabase()
 
 global.conn = new WAConnection()
 let authFile = `${opts._[0] || 'session'}.data.json`
@@ -69,15 +51,11 @@ if (opts['debug']) conn.logger.level = 'debug'
 if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
 if (!opts['test']) setInterval(async () => {
   await global.db.write()
-}, 10 * 1000) // Save every minute
+}, 60 * 1000) // Save every minute
 if (opts['server']) require('./server')(global.conn, PORT)
 
-conn.user = {
-  jid: '',
-  name: '',
-  phone: {},
-  ...(conn.user || {})
-}
+conn.version = [2, 2413, 3]
+conn.connectOptions.maxQueryResponseTime = 60_000
 if (opts['test']) {
   conn.user = {
     jid: '2219191@s.whatsapp.net',
@@ -123,7 +101,17 @@ if (opts['test']) {
     process.send(line.trim())
   })
   conn.connect().then(async () => {
-    if (global.db.data == null) await loadDatabase()
+    await global.db.read()
+    global.db.data = {
+      users: {},
+      chats: {},
+      stats: {},
+      msgs: {},
+      sticker: {},
+      settings: {},
+      ...(global.db.data || {})
+    }
+    global.db.chain = _.chain(global.db.data)
     fs.writeFileSync(authFile, JSON.stringify(conn.base64EncodedAuthInfo(), null, '\t'))
     global.timestamp.connect = new Date
   })
@@ -143,8 +131,8 @@ global.reloadHandler = function () {
   }
   conn.welcome = 'Hai, @user!\nWelcome to the group @subject\n\n@desc'
   conn.bye = '@user GoodBye'
-  conn.spromote = '@user now admin'
-  conn.sdemote = '@user not admin now'
+  conn.spromote = '@user Now Admin'
+  conn.sdemote = '@user Not A Admin'
   conn.handler = handler.handler
   conn.onDelete = handler.delete
   conn.onParticipantsUpdate = handler.participantsUpdate
@@ -198,9 +186,9 @@ global.reload = (_event, filename) => {
         conn.logger.warn(`removed plugin '${filename}'`)
         return delete global.plugins[filename]
       }
-    } else conn.logger.info(`need new plugin '${filename}'`)
+    } else conn.logger.info(`need new plugin'${filename}'`)
     let err = syntaxerror(fs.readFileSync(dir), filename)
-    if (err) conn.logger.error(`syntax error while loadingt '${filename}'\n${err}`)
+    if (err) conn.logger.error(`syntax error when loading '${filename}'\n${err}`)
     else try {
       global.plugins[filename] = require(dir)
     } catch (e) {
