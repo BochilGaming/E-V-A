@@ -72,9 +72,6 @@ if (!opts['test']) setInterval(async () => {
 }, 10 * 1000) // Save every minute
 if (opts['server']) require('./server')(global.conn, PORT)
 
-conn.version = [2, 2413, 3]
-conn.connectOptions.maxQueryResponseTime = 10_000
-
 conn.user = {
   jid: '',
   name: '',
@@ -203,7 +200,7 @@ global.reload = (_event, filename) => {
       }
     } else conn.logger.info(`need new plugin '${filename}'`)
     let err = syntaxerror(fs.readFileSync(dir), filename)
-    if (err) conn.logger.error(`syntax error when loading '${filename}'\n${err}`)
+    if (err) conn.logger.error(`syntax error while loadingt '${filename}'\n${err}`)
     else try {
       global.plugins[filename] = require(dir)
     } catch (e) {
@@ -254,7 +251,7 @@ async function _quickTest() {
 
   if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg to send videos (pkg install ffmpeg)')
   if (s.ffmpeg && !s.ffmpegWebp) conn.logger.warn('Stickers cant be animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
-  if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp in ffmpeg is not installedl (pkg install imagemagick)')
+  if (!s.convert && !s.magick && !s.gm) conn.logger.warn('Stickers may not work without imagemagick if libwebp in ffmpeg is not installed (pkg install imagemagick)')
 }
 
 _quickTest()
