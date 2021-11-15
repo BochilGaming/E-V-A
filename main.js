@@ -72,6 +72,9 @@ if (!opts['test']) setInterval(async () => {
 }, 10 * 1000) // Save every minute
 if (opts['server']) require('./server')(global.conn, PORT)
 
+conn.version = [2, 2413, 3]
+conn.connectOptions.maxQueryResponseTime = 10_000
+
 conn.user = {
   jid: '',
   name: '',
